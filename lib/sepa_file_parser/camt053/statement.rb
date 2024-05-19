@@ -27,7 +27,7 @@ module SepaFileParser
       end
 
       def account
-        @account ||= Account.new(xml_data.xpath('Acct').first)
+        @account ||= SepaFileParser::Account.from_camt_data(xml_data.xpath('Acct').first)
       end
 
       def entries

@@ -1,7 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each  { |file| require file }
-Dir["./spec/support/**/*.rb"].each { |file| require file }
+Dir['./spec/support/**/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

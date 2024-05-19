@@ -5,7 +5,8 @@ module SepaFileParser
     PARSER_MAPPING = {
       camt052: SepaFileParser::Camt052::Base,
       camt053: SepaFileParser::Camt053::Base,
-      camt054: SepaFileParser::Camt054::Base
+      camt054: SepaFileParser::Camt054::Base,
+      pain001: SepaFileParser::Pain001::Base,
     }.freeze
 
     SUPPORTED_PARSERS = PARSER_MAPPING.keys.freeze

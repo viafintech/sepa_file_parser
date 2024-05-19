@@ -22,6 +22,7 @@ module SepaFileParser
 
         BigDecimal(value.tr(',', '.'))
       end
+
     end
   end
 end
