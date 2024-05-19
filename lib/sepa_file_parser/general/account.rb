@@ -16,7 +16,16 @@ module SepaFileParser
       )
     end
 
-    def initialize(iban:, other_id:, bic:, bank_name:, currency:)
+    def self.from_pain_data(xml_data, currency, context)
+      self.new(
+        iban:      xml_data.xpath("#{context}Acct/Id/IBAN/text()").text,
+        bic:       xml_data.xpath("#{context}Agt/FinInstnId/BIC/text()").text,
+        bank_name: xml_data.xpath("#{context}/Nm/text()").text,
+        currency:  currency,
+      )
+    end
+
+    def initialize(iban: nil, other_id: nil, bic:, bank_name:, currency:)
       @iban      = iban
       @other_id  = other_id
       @bic       = bic
