@@ -9,7 +9,7 @@ module SepaFileParser
         @xml_data = xml_data
         # BkToCstmrAccptRpt = Bank to Customer Account Report
         grphdr = xml_data.xpath('BkToCstmrAcctRpt/GrpHdr')
-        @group_header = CamtParser::GroupHeader.new(grphdr)
+        @group_header = SepaFileParser::GroupHeader.new(grphdr)
         reports = xml_data.xpath('BkToCstmrAcctRpt/Rpt')
         @reports = reports.map{ |x| Report.new(x) }
       end

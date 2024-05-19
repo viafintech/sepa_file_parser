@@ -19,11 +19,11 @@ module SepaFileParser
       end
 
       def account
-        @account ||= CamtParser::Account.new(xml_data.xpath('Acct').first)
+        @account ||= SepaFileParser::Account.new(xml_data.xpath('Acct').first)
       end
 
       def entries
-        @entries ||= xml_data.xpath('Ntry').map{ |x| CamtParser::Entry.new(x) }
+        @entries ||= xml_data.xpath('Ntry').map{ |x| SepaFileParser::Entry.new(x) }
       end
 
       def legal_sequence_number
@@ -44,7 +44,7 @@ module SepaFileParser
           date = bal.xpath('Dt/Dt/text()').text
           credit = bal.xpath('CdtDbtInd/text()').text == 'CRDT'
           currency = bal.xpath('Amt').attribute('Ccy').value
-          CamtParser::AccountBalance.new bal.xpath('Amt/text()').text, currency, date, credit
+          SepaFileParser::AccountBalance.new bal.xpath('Amt/text()').text, currency, date, credit
         end
       end
       alias_method :opening_or_intermediary_balance, :opening_balance
@@ -55,7 +55,7 @@ module SepaFileParser
           date = bal.xpath('Dt/Dt/text()').text
           credit = bal.xpath('CdtDbtInd/text()').text == 'CRDT'
           currency = bal.xpath('Amt').attribute('Ccy').value
-          CamtParser::AccountBalance.new bal.xpath('Amt/text()').text, currency, date, credit
+          SepaFileParser::AccountBalance.new bal.xpath('Amt/text()').text, currency, date, credit
         end
       end
       alias_method :closing_or_intermediary_balance, :closing_balance

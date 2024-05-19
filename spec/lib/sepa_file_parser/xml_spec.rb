@@ -70,13 +70,13 @@ RSpec.describe SepaFileParser::Xml do
     end
 
     it "does not raise an exception for a valid namespace" do
-      expect(SepaFileParser::Format052::Base).to receive(:new)
-      described_class.parse parse_xml('spec/fixtures/052/valid_namespace.xml')
+      expect(SepaFileParser::Camt052::Base).to receive(:new)
+      described_class.parse parse_xml('spec/fixtures/camt052/valid_namespace.xml')
     end
 
     it "does not raise an exception for a valid namespace" do
-      expect(SepaFileParser::Format053::Base).to receive(:new)
-      described_class.parse parse_xml('spec/fixtures/053/valid_namespace.xml')
+      expect(SepaFileParser::Camt053::Base).to receive(:new)
+      described_class.parse parse_xml('spec/fixtures/camt053/valid_namespace.xml')
     end
   end
 end

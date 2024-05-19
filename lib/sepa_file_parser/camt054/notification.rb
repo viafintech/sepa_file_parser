@@ -45,7 +45,7 @@ module SepaFileParser
         xml_data.to_s
       end
 
-      # @return [CamtParser::Format054::Notification]
+      # @return [SepaFileParser::Camt054::Notification]
       def self.parse(xml)
         self.new Nokogiri::XML(xml).xpath('Ntfctn')
       end
