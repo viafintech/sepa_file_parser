@@ -10,7 +10,7 @@ RSpec.describe SepaFileParser::AccountBalance do
 
   specify { expect(subject.currency).to eq "EUR" }
   specify { expect(subject.date).to eq Date.new(2013, 12, 27) }
-  specify { expect(subject.sign).to eq 1 }
+  specify { expect(subject.sign).to eq(1) }
   specify { expect(subject.credit?).to be_truthy }
   specify { expect(subject.amount).to eq BigDecimal("33.06") }
   specify { expect(subject.amount_in_cents).to eq(3306) }
@@ -29,7 +29,7 @@ RSpec.describe SepaFileParser::AccountBalance do
 
     specify { expect(subject.currency).to eq "EUR" }
     specify { expect(subject.date).to eq Date.new(2013, 12, 27) }
-    specify { expect(subject.sign).to eq -1 }
+    specify { expect(subject.sign).to eq(-1) }
     specify { expect(subject.credit?).to be_falsey }
     specify { expect(subject.amount).to eq BigDecimal("33.06") }
     specify { expect(subject.amount_in_cents).to eq(3306) }
