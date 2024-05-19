@@ -1,0 +1,48 @@
+PATH
+  remote: .
+  specs:
+    sepa_file_parser (0.1.0)
+      bigdecimal
+      nokogiri
+      time
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bigdecimal (3.1.8)
+    builder (3.2.4)
+    date (3.3.4)
+    diff-lcs (1.5.1)
+    mini_portile2 (2.8.6)
+    nokogiri (1.16.5)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
+    racc (1.7.3)
+    rake (13.2.1)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    time (0.3.0)
+      date
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder (~> 3.2.4)
+  rake (~> 13.2.1)
+  rspec (~> 3.13.0)
+  sepa_file_parser!
+
+BUNDLED WITH
+   2.4.2
