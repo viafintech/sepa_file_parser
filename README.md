@@ -2,7 +2,7 @@
 
 [![Ruby CI](https://github.com/viafintech/sepa_file_parser/actions/workflows/test.yml/badge.svg)](https://github.com/viafintech/sepa_file_parser/actions/workflows/test.yml)
 
-SepaFileParser is a Ruby Gem which does some basic parsing of sepa files, such as camt052, camt053, and camt054 files into an object
+SepaFileParser is a Ruby Gem which does some basic parsing of sepa files, such as camt052, camt053, pain001, and pain008 files into an object
 structure for easier usability instead of having to use an XML parser all the time.
 Keep in mind that this might not include a complete parsing of camt specification.
 Fields that we did not need for our use-cases are simply ignored for now.
@@ -35,7 +35,7 @@ end
 ```
 
 Please check the code for fields not mentioned here.
-Also check the code for camt052 and camt054.
+Also check the code for other file formats.
 
 ## Registering new namespaces
 In case you have to parse a namespace which is generally compatible with any of the camt parsers, it is possible to register additional namespaces, without requiring a change to this gem.
@@ -46,6 +46,10 @@ SepaFileParser::Xml.register('<your namespace>', :camt052)
 SepaFileParser::Xml.register('<your namespace>', :camt053)
 # Registering a new camt054 namespace
 SepaFileParser::Xml.register('<your namespace>', :camt054)
+# Registering a new pain001 namespace
+SepaFileParser::Xml.register('<your namespace>', :pain001)
+# Registering a new pain008 namespace
+SepaFileParser::Xml.register('<your namespace>', :pain008)
 ```
 
 ## Bugs and Contribution
