@@ -7,7 +7,11 @@ module SepaFileParser
 
     def initialize(xml_data)
       @xml_data = xml_data
-      @amount = xml_data.xpath('Amt/InstdAmt/text()').text
+
+      @amount = [
+        xml_data.xpath('Amt/InstdAmt').first,
+        xml_data.xpath('InstdAmt').first,
+      ].find { |a| a != nil }.text
     end
 
     def amount
@@ -20,7 +24,10 @@ module SepaFileParser
 
     # @return [String]
     def currency
-      @currency ||= xml_data.xpath('Amt/InstdAmt/@Ccy').text
+      @currency ||= [
+        xml_data.xpath('Amt/InstdAmt/@Ccy').first,
+        xml_data.xpath('InstdAmt/@Ccy').first,
+      ].find { |a| a != nil }.text
     end
 
     def account

@@ -7,6 +7,7 @@ module SepaFileParser
       camt053: SepaFileParser::Camt053::Base,
       camt054: SepaFileParser::Camt054::Base,
       pain001: SepaFileParser::Pain001::Base,
+      pain008: SepaFileParser::Pain008::Base,
     }.freeze
 
     SUPPORTED_PARSERS = PARSER_MAPPING.keys.freeze
@@ -26,7 +27,9 @@ module SepaFileParser
     end
 
     def self.parse(doc)
-      raise SepaFileParser::Errors::NotXMLError, doc.class unless doc.is_a? Nokogiri::XML::Document
+      if !doc.is_a?(Nokogiri::XML::Document)
+        raise SepaFileParser::Errors::NotXMLError, doc.class
+      end
 
       namespace = doc.namespaces['xmlns']
       doc.remove_namespaces!
