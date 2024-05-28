@@ -21,6 +21,7 @@ SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:pain.001.001.03', :
 
 ## PAIN002
 SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:pain.002.001.03', :pain002)
+SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:pain.002.001.10', :pain002)
 
 ## PAIN008
 SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:pain.008.003.02', :pain008)
