@@ -7,6 +7,7 @@ module SepaFileParser
       camt053: SepaFileParser::Camt053::Base,
       camt054: SepaFileParser::Camt054::Base,
       pain001: SepaFileParser::Pain001::Base,
+      pain002: SepaFileParser::Pain002::Base,
       pain008: SepaFileParser::Pain008::Base,
     }.freeze
 
