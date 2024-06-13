@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sepa_file_parser (0.2.1)
+    sepa_file_parser (0.2.2)
       bigdecimal
       nokogiri
       time
