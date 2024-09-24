@@ -38,7 +38,7 @@ Please check the code for fields not mentioned here.
 Also check the code for other file formats.
 
 ## Registering new namespaces
-In case you have to parse a namespace which is generally compatible with any of the camt parsers, it is possible to register additional namespaces, without requiring a change to this gem.
+In case you have to parse a namespace which is generally compatible with any of the parsers, it is possible to register additional namespaces, without requiring a change to this gem.
 ```ruby
 # Registering a new camt052 namespace
 SepaFileParser::Xml.register('<your namespace>', :camt052)
