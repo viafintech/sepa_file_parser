@@ -1,3 +1,11 @@
+# v0.3.0
+
+- Add `NtryRef` support for general entry
+
+# v0.2.2
+
+- Add pain.008.001.08 support
+
 # v0.2.1
 
 - Add support for pain.002.001.10

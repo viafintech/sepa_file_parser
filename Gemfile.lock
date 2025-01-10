@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sepa_file_parser (0.2.2)
+    sepa_file_parser (0.3.0)
       bigdecimal
       nokogiri
       time
@@ -13,11 +13,9 @@ GEM
     builder (3.2.4)
     date (3.3.4)
     diff-lcs (1.5.1)
-    mini_portile2 (2.8.6)
-    nokogiri (1.16.5)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
-    racc (1.7.3)
+    racc (1.8.1)
     rake (13.2.1)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -36,7 +34,7 @@ GEM
       date
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   builder (~> 3.2.4)
@@ -45,4 +43,4 @@ DEPENDENCIES
   sepa_file_parser!
 
 BUNDLED WITH
-   2.4.2
+   2.6.2
