@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sepa_file_parser (0.3.0)
+    sepa_file_parser (0.4.0)
       bigdecimal
       nokogiri
       time
@@ -13,6 +13,8 @@ GEM
     builder (3.2.4)
     date (3.3.4)
     diff-lcs (1.5.1)
+    nokogiri (1.18.1-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
     racc (1.8.1)
@@ -34,6 +36,7 @@ GEM
       date
 
 PLATFORMS
+  arm64-darwin-24
   x86_64-linux
 
 DEPENDENCIES

@@ -1,3 +1,10 @@
+# v0.4.0
+
+- Add the following methods to general transaction:
+  - `original_currency_amount` (`AmtDtls/InstdAmt/Amt/text()`)
+  - `original_currency` (`AmtDtls/InstdAmt/Amt/@Ccy`)
+  - `exchange_rate` (`AmtDtls/TxAmt/CcyXchg/XchgRate/text()`)
+
 # v0.3.0
 
 - Add `NtryRef` support for general entry
