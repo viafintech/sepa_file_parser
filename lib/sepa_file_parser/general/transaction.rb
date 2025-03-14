@@ -115,7 +115,10 @@ module SepaFileParser
     end
 
     def creditor_identifier # May be missing
-      @creditor_identifier ||= xml_data.xpath('RltdPties/Cdtr/Id/PrvtId/Othr/Id/text()').text
+      @creditor_identifier ||= [
+        xml_data.xpath('RltdPties/Cdtr/Id/PrvtId/Othr/Id/text()'),
+        xml_data.xpath('RltdPties/Cdtr/Pty/Id/PrvtId/Othr/Id/text()'),
+      ].reject(&:empty?).first.text
     end
 
     def payment_information # May be missing

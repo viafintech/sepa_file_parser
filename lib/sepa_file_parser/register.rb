@@ -5,6 +5,7 @@ require_relative './xml'
 # Add registrations
 ## CAMT052
 SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:camt.052.001.02', :camt052)
+SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:camt.052.001.08', :camt052)
 
 ## CAMT053
 SepaFileParser::Xml.register('urn:iso:std:iso:20022:tech:xsd:camt.053.001.02', :camt053)
