@@ -40,7 +40,10 @@ module SepaFileParser
 
       def opening_balance
         @opening_balance ||= begin
-          bal = xml_data.xpath('Bal/Tp//Cd[contains(text(), "PRCD")]').first.ancestors('Bal')
+          openingNode = xml_data.xpath('Bal/Tp//Cd[contains(text(), "PRCD")]').first ||
+                          xml_data.xpath('Bal/Tp//Cd[contains(text(), "OPBD")]').first
+
+          bal = openingNode.ancestors('Bal')
           date = bal.xpath('Dt/Dt/text()').text
           credit = bal.xpath('CdtDbtInd/text()').text == 'CRDT'
           currency = bal.xpath('Amt').attribute('Ccy').value

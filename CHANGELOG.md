@@ -1,3 +1,7 @@
+# v0.5.0
+
+- Add general support for camt.053.001.08
+
 # v0.4.0
 
 - Add the following methods to general transaction:
