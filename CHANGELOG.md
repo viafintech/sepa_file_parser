@@ -1,6 +1,7 @@
 # v0.5.0
 
-- Add general support for camt.053.001.08
+- Add general support for camt.052.001.08
+- Better handling for creditor identifier for camt.053.001.08 and camt.052.001.08
 
 # v0.4.0
 
