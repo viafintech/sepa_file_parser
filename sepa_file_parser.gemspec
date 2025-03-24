@@ -15,6 +15,12 @@ Gem::Specification.new do |spec|
   spec.homepage      = 'https://github.com/viafintech/sepa_file_parser'
   spec.license       = 'MIT'
 
+  spec.metadata = {
+    'changelog_uri'   => 'https://github.com/viafintech/sepa_file_parser/blob/master/CHANGELOG.md',
+    'source_code_uri' => 'https://github.com/viafintech/sepa_file_parser',
+    'bug_tracker_uri' => 'https://github.com/viafintech/sepa_file_parser/issues',
+  }
+
   spec.files         = Dir['lib/**/*.rb', 'lib/**/*.rake'] # Important!
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
