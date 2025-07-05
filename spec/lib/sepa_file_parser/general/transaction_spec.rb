@@ -136,4 +136,16 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.remittance_information).to eq("INVOICE R77561") }
     end
   end
+
+  context 'missing creditor identifier' do
+    let(:camt)       { SepaFileParser::File.parse('spec/fixtures/camt053/missing_creditor_identifier.xml') }
+    let(:statements) { camt.statements }
+    let(:ex_stmt)    { statements[0] }
+    let(:entries)  { ex_stmt.entries }
+    let(:ex_entry) { entries[0] }
+    let(:transactions)   { ex_entry.transactions }
+    let(:ex_transaction) { transactions[0] }
+
+    specify { expect(ex_transaction.creditor_identifier).to eq(nil) }
+  end
 end
