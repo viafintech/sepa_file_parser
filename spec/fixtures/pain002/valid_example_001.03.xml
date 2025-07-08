@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Document xmlns="http://www.six-interbank-clearing.com/de/pain.002.001.03.ch.02.xsd">
+    <CstmrPmtStsRpt>
+        <GrpHdr>
+            <MsgId>2057910AFHH190223605204</MsgId>
+            <CreDtTm>2025-07-07T17:02:23.605Z</CreDtTm>
+            <InitgPty>
+                <Id>
+                    <OrgId>
+                        <BICOrBEI>ZKBKCHZZ</BICOrBEI>
+                    </OrgId>
+                </Id>
+            </InitgPty>
+        </GrpHdr>
+        <OrgnlGrpInfAndSts>
+            <OrgnlMsgId>bd381007c00627bb0e5adabd37fbb4</OrgnlMsgId>
+            <OrgnlMsgNmId>pain.001.001.03.ch.02</OrgnlMsgNmId>
+            <GrpSts>ACTC</GrpSts>
+        </OrgnlGrpInfAndSts>
+    </CstmrPmtStsRpt>
+</Document>

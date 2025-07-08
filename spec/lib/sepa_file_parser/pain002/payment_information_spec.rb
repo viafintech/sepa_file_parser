@@ -2,12 +2,11 @@
 
 require 'spec_helper'
 
-RSpec.describe SepaFileParser::Pain002::Report do
+RSpec.describe SepaFileParser::Pain002::PaymentInformation do
   let(:pain) { SepaFileParser::File.parse('spec/fixtures/pain002/valid_example.xml') }
 
-  let(:reports) { pain.reports }
-  let(:ex_report) { pain.reports[0] }
-  let(:entry)     { ex_report.entries[0] }
+  let(:reports)   { pain.payment_information_and_status }
+  let(:ex_report) { pain.payment_information_and_status[0] }
 
   specify { expect(reports).to all(be_kind_of(described_class)) }
   specify { expect(ex_report.original_identification).to eq('Payment-Information-ID-12345') }

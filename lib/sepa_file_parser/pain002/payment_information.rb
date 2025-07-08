@@ -2,7 +2,7 @@
 
 module SepaFileParser
   module Pain002
-    class Report
+    class PaymentInformation
 
       attr_reader :xml_data
 
@@ -25,7 +25,6 @@ module SepaFileParser
       def source
         xml_data.to_s
       end
-
     end
   end
 end
