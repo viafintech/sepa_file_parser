@@ -14,7 +14,7 @@ RSpec.describe SepaFileParser::Pain002::Base do
     specify { expect(SepaFileParser::GroupHeader).to receive(:new).and_call_original }
 
     specify do
-      expect(SepaFileParser::Pain002::Report).to receive(:new).and_call_original
+      expect(SepaFileParser::Pain002::PaymentInformation).to receive(:new).and_call_original
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe SepaFileParser::Pain002::Base do
       specify { expect(SepaFileParser::GroupHeader).to receive(:new).and_call_original }
 
       specify do
-        expect(SepaFileParser::Pain002::Report).to receive(:new).and_call_original
+        expect(SepaFileParser::Pain002::PaymentInformation).to receive(:new).and_call_original
       end
     end
 
@@ -41,5 +41,4 @@ RSpec.describe SepaFileParser::Pain002::Base do
     specify { expect(pain.reports).not_to eq([]) }
     specify { expect(pain.xml_data).not_to be_nil }
   end
-
 end

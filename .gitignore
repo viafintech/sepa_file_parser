@@ -5,6 +5,7 @@
 .bundle
 .config
 .yardoc
+.devbox
 InstalledFiles
 _yardoc
 coverage
