@@ -41,5 +41,4 @@ RSpec.describe SepaFileParser::Pain002::Base do
     specify { expect(pain.reports).not_to eq([]) }
     specify { expect(pain.xml_data).not_to be_nil }
   end
-
 end

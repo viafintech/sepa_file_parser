@@ -5,7 +5,7 @@ require 'spec_helper'
 RSpec.describe SepaFileParser::Pain002::Report do
   let(:pain) { SepaFileParser::File.parse('spec/fixtures/pain002/valid_example.xml') }
 
-  let(:reports) { pain.reports }
+  let(:reports)   { pain.reports }
   let(:ex_report) { pain.reports[0] }
   let(:entry)     { ex_report.entries[0] }
 
