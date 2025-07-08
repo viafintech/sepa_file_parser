@@ -25,7 +25,6 @@ module SepaFileParser
       def source
         xml_data.to_s
       end
-
     end
   end
 end
