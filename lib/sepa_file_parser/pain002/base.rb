@@ -15,7 +15,7 @@ module SepaFileParser
         @reports = reports.map { |x| Report.new(x) }
 
         group_information_and_status = xml_data.xpath('CstmrPmtStsRpt/OrgnlGrpInfAndSts')
-        @group_information_and_status = group_information_and_status.map { |x| GroupInformation.new(x) }
+        @group_information_and_status = GroupInformation.new(group_information_and_status)
       end
     end
   end
