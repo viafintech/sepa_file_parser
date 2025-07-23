@@ -12,6 +12,7 @@ RSpec.describe SepaFileParser::Pain002::Report do
   specify { expect(reports).to all(be_kind_of(described_class)) }
   specify { expect(ex_report.original_identification).to eq('Payment-Information-ID-12345') }
   specify { expect(ex_report.status_id).to eq('Status-ID') }
+  specify { expect(ex_report.transaction_instruction).to eq('InstrIDValue') }
   specify { expect(ex_report.transaction_reference).to eq('Source1234') }
   specify { expect(ex_report.transaction_status).to eq('RJCT') }
 

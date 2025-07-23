@@ -18,6 +18,7 @@
       <OrgnlPmtInfId>Payment-Information-ID-12345</OrgnlPmtInfId>
       <TxInfAndSts>
         <StsId>Status-ID</StsId>
+        <OrgnlInstrId>InstrIDValue</OrgnlInstrId>
         <OrgnlEndToEndId>Source1234</OrgnlEndToEndId>
         <TxSts>RJCT</TxSts>
         <StsRsnInf>
