@@ -18,6 +18,14 @@ module SepaFileParser
         @status_id ||= xml_data.xpath('TxInfAndSts/StsId/text()').text
       end
 
+      def transaction_instruction
+        @transaction_instruction ||= xml_data.xpath('TxInfAndSts/OrgnlInstrId/text()').text
+      end
+
+      def transaction_reference
+        @transaction_reference ||= xml_data.xpath('TxInfAndSts/OrgnlEndToEndId/text()').text
+      end
+
       def transaction_status
         @transaction_status ||= xml_data.xpath('TxInfAndSts/TxSts/text()').text
       end
