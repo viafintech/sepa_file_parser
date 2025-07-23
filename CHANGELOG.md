@@ -1,3 +1,16 @@
+# v0.6.1
+
+- Fix pain002 group_information_and_status
+- Extend pain 002 parsing by additional fields
+
+# v0.6.0
+
+- Implement pain002 group information parsing
+
+# v0.5.1
+
+- prevent crash when creditor_identifier is missing
+
 # v0.5.0
 
 - Add general support for camt.052.001.08
