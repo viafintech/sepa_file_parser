@@ -2,7 +2,7 @@
 
 [![Ruby CI](https://github.com/viafintech/sepa_file_parser/actions/workflows/test.yml/badge.svg)](https://github.com/viafintech/sepa_file_parser/actions/workflows/test.yml)
 
-SepaFileParser is a Ruby Gem which does some basic parsing of sepa files, such as camt052, camt053, pain001, pain002, and pain008 files into an object
+SepaFileParser is a Ruby Gem which does some basic parsing of sepa files, such as camt052, camt053, camt054, pain001, pain002, and pain008 files into an object
 structure for easier usability instead of having to use an XML parser all the time.
 Keep in mind that this might not include a complete parsing of camt specification.
 Fields that we did not need for our use-cases are simply ignored for now.

@@ -110,6 +110,10 @@ module SepaFileParser
       @creditor_reference ||= xml_data.xpath('RmtInf/Strd/CdtrRefInf/Ref/text()').text
     end
 
+    def message_id # May be missing
+      @message_id ||= xml_data.xpath('Refs/MsgId/text()').text
+    end
+
     def transaction_id # May be missing
       @transaction_id ||= xml_data.xpath('Refs/TxId/text()').text
     end
