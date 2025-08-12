@@ -1,3 +1,7 @@
+# v0.7.0
+
+- Add support for accessing transaction `message_id`
+
 # v0.6.1
 
 - Fix pain002 group_information_and_status
