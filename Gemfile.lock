@@ -37,6 +37,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
+  arm64-darwin-25
   x86_64-linux
 
 DEPENDENCIES
@@ -46,4 +47,4 @@ DEPENDENCIES
   sepa_file_parser!
 
 BUNDLED WITH
-   2.6.5
+   2.7.1
