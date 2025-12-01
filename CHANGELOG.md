@@ -1,3 +1,8 @@
+# v0.8.0
+
+- Add basic support for camt.054.001.08
+  - This just adds the registration of the format so it does not have to be done before using it
+
 # v0.7.0
 
 - Add support for accessing transaction `message_id`

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sepa_file_parser (0.7.0)
+    sepa_file_parser (0.8.0)
       bigdecimal
       nokogiri
       time
@@ -37,6 +37,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
+  arm64-darwin-25
   x86_64-linux
 
 DEPENDENCIES
