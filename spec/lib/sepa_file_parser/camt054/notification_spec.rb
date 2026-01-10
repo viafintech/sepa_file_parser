@@ -8,12 +8,28 @@ RSpec.describe SepaFileParser::Camt054::Notification do
   let(:ex_ntfcn)      { camt.notifications[0] }
 
   specify { expect(notifications).to all(be_kind_of(described_class)) }
-  specify { expect(ex_ntfcn.identification).to eq("20160410375204000131032") }
+  specify { expect(ex_ntfcn.identification).to eq('20160410375204000131032') }
   specify { expect(ex_ntfcn.generation_date).to be_kind_of(Time) }
   specify { expect(ex_ntfcn.from_date_time).to be_kind_of(Time) }
   specify { expect(ex_ntfcn.to_date_time).to be_kind_of(Time) }
   specify { expect(ex_ntfcn.account).to be_kind_of(SepaFileParser::Account) }
   specify { expect(ex_ntfcn.entries).to be_kind_of(Array) }
   specify { expect(ex_ntfcn.xml_data).to_not be_nil }
+
+  context 'with empty amount' do
+    let(:camt) do
+      SepaFileParser::File.parse 'spec/fixtures/camt054/valid_example_with_empty_amount.xml'
+    end
+
+    let(:entries) do
+      ex_ntfcn.entries
+    end
+
+    let(:transactions) do
+      entries.first.transactions
+    end
+
+    specify { expect(transactions.first.send(:parse_amount)).to be_nil }
+  end
 
 end
