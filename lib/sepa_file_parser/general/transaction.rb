@@ -152,7 +152,7 @@ module SepaFileParser
     end
 
     def parse_currency
-      if xml_data.xpath('Amt').any?
+      if xml_data.xpath('Amt/@Ccy').any?
         xml_data.xpath('Amt/@Ccy').text
       elsif xml_data.xpath('AmtDtls//Amt/@Ccy').any?
         xml_data.xpath('AmtDtls//Amt/@Ccy').first.text
