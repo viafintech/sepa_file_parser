@@ -18,7 +18,7 @@ RSpec.describe SepaFileParser::Camt054::Notification do
 
   context 'with empty amount' do
     let(:camt) do
-      SepaFileParser::File.parse 'spec/fixtures/camt054/valid_example_with_empty_amount.xml'
+      SepaFileParser::File.parse('spec/fixtures/camt054/valid_example_with_empty_amount.xml')
     end
 
     let(:entries) do
@@ -30,6 +30,7 @@ RSpec.describe SepaFileParser::Camt054::Notification do
     end
 
     specify { expect(transactions.first.send(:parse_amount)).to be_nil }
+    specify { expect(transactions.first.send(:parse_currency)).to eq('EUR') }
   end
 
 end
