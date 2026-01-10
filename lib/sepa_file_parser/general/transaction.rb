@@ -144,9 +144,9 @@ module SepaFileParser
     end
 
     def parse_amount
-      if xml_data.xpath('Amt').any?
+      if xml_data.xpath('Amt/text()').any?
         xml_data.xpath('Amt/text()').text
-      elsif xml_data.xpath('AmtDtls').any?
+      elsif xml_data.xpath('AmtDtls//Amt/text()').any?
         xml_data.xpath('AmtDtls//Amt/text()').first.text
       end
     end
@@ -154,7 +154,7 @@ module SepaFileParser
     def parse_currency
       if xml_data.xpath('Amt').any?
         xml_data.xpath('Amt/@Ccy').text
-      elsif xml_data.xpath('AmtDtls').any?
+      elsif xml_data.xpath('AmtDtls//Amt/@Ccy').any?
         xml_data.xpath('AmtDtls//Amt/@Ccy').first.text
       end
     end

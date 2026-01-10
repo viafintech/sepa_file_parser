@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Document
+  xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.02"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+    <MsgId>20160410375204000131033</MsgId>
+    <CreDtTm>2026-01-05T16:36:50+01:00</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>20160410375204000131032</Id>
+      <CreDtTm>2026-01-05T16:36:29+01:00</CreDtTm>
+      <Acct>
+        <Id>
+          <IBAN>DE12300606010002787431</IBAN>
+        </Id>
+        <Ccy>EUR</Ccy>
+        <Ownr>
+          <Nm>L 12341234 GmbH</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <BIC>DXXXEDDXXX</BIC>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Cd>DEBLZ</Cd>
+              </ClrSysId>
+              <MmbId>1234567</MmbId>
+            </ClrSysMmbId>
+            <Nm>D123456 123456 bank</Nm>
+            <PstlAdr>
+              <AdrLine>11111 Musterhausen</AdrLine>
+            </PstlAdr>
+            <Othr>
+              <Id>DE12345678</Id>
+              <Issr>UmsStId</Issr>
+            </Othr>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <Amt Ccy="EUR">587.82</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BookgDt>
+          <Dt>2024-01-02</Dt>
+        </BookgDt>
+        <ValDt>
+          <Dt>2024-01-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>O/20625324522</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>NTRF+166</Cd>
+            <Issr>DK</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <MsgId>NOTPROVIDED</MsgId>
+              <AcctSvcrRef>O/2543453445</AcctSvcrRef>
+              <InstrId>20243453534534534534530001</InstrId>
+              <EndToEndId>NOTPROVIDED</EndToEndId>
+              <TxId>2345345345432</TxId>
+            </Refs>
+            <AmtDtls>
+              <TxAmt>
+                <Amt Ccy="EUR" />
+              </TxAmt>
+            </AmtDtls>
+            <BkTxCd>
+              <Prtry>
+                <Cd>NTRF+166</Cd>
+                <Issr>DK</Issr>
+              </Prtry>
+            </BkTxCd>
+            <RltdPties>
+              <Dbtr>
+                <Nm>Hans Mustermann</Nm>
+              </Dbtr>
+            </RltdPties>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>
