@@ -1,3 +1,7 @@
+# v0.8.1
+
+- Handle missing amount information in Entry Transaction
+
 # v0.8.0
 
 - Add basic support for camt.054.001.08
