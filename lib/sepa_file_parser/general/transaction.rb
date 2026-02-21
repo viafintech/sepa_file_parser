@@ -32,6 +32,14 @@ module SepaFileParser
       @debitor ||= SepaFileParser::Debitor.new(xml_data)
     end
 
+    def ultimate_debitor
+      if xml_data.xpath('RltdPties/UltmtDbtr').any?
+        @ultimate_debitor ||= SepaFileParser::UltimateDebitor.new(xml_data)
+      else
+        nil
+      end
+    end
+
     def name
       credit? ? debitor.name : creditor.name
     end
