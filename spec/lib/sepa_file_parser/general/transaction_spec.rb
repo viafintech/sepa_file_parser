@@ -59,6 +59,7 @@ RSpec.describe SepaFileParser::Transaction do
     specify {
       expect(ex_transaction.additional_information).to eq("AdditionalTransactionInformation")
     }
+    specify { expect(ex_transaction.ultimate_debitor).to be_nil }
     specify { expect(ex_transaction.xml_data).to_not be_nil }
   end
 
@@ -85,6 +86,7 @@ RSpec.describe SepaFileParser::Transaction do
 
     specify { expect(ex_transaction.name).to eq("Hans Kaufmann") }
     specify { expect(ex_transaction.creditor_reference).to eq("CreditorReference") }
+    specify { expect(ex_transaction.ultimate_debitor).to be_nil }
   end
 
   context 'version 8' do
@@ -134,6 +136,21 @@ RSpec.describe SepaFileParser::Transaction do
       let(:ex_transaction) { transactions[0] }
 
     specify { expect(ex_transaction.remittance_information).to eq("INVOICE R77561") }
+    end
+
+    context '#ultimate_debitor' do
+      let(:ex_entry) { entries[0] }
+      let(:transactions)   { ex_entry.transactions }
+      let(:ex_transaction) { transactions[0] }
+
+      specify { expect(ex_transaction.ultimate_debitor).to be_kind_of(SepaFileParser::UltimateDebitor) }
+      specify { expect(ex_transaction.ultimate_debitor.name).to eq("John Doe") }
+
+      context 'when not present' do
+        let(:ex_entry) { entries[1] }
+
+        specify { expect(ex_transaction.ultimate_debitor).to be_nil }
+      end
     end
   end
 
