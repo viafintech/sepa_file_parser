@@ -166,7 +166,7 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.creditor_identifier).to eq(nil) }
   end
 
-  context 'fetch message id from transaction' do
+  context 'camt052' do
     let(:camt)     { SepaFileParser::File.parse('spec/fixtures/camt052/valid_example_v8_2.xml') }
     let(:ex_rpt)   { camt.reports[0] }
     let(:entries)  { ex_rpt.entries }
@@ -175,5 +175,6 @@ RSpec.describe SepaFileParser::Transaction do
     let(:ex_transaction) { transactions[0] }
 
     specify { expect(ex_transaction.message_id).to eq("pacs009-InstrId-00006") }
+    specify { expect(ex_transaction.uetr).to eq("b4f8c1a2-7e9d-4b3f-a1c6-d82e4f0a9b5c") }
   end
 end

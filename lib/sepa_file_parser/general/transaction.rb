@@ -145,6 +145,10 @@ module SepaFileParser
       @reason_code ||= xml_data.xpath('RtrInf/Rsn/Cd/text()').text
     end
 
+    def uetr # May be missing
+      @uetr ||= xml_data.xpath('Refs/UETR/text()').text
+    end
+
     private
 
     def parse_original_currency_amount

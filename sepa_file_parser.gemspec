@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'rake',    '~> 13.2.1'
-  spec.add_development_dependency 'rspec',   '~> 3.13.0'
+  spec.add_development_dependency 'rspec',   '~> 3.13.2'
   spec.add_development_dependency 'builder', '~> 3.2.4'
 
   spec.add_runtime_dependency 'bigdecimal'
