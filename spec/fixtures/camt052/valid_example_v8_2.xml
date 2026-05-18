@@ -102,6 +102,7 @@
 						    <MsgId>pacs009-InstrId-00006</MsgId>
 							<AcctSvcrRef>EK2500858FABA1</AcctSvcrRef>
 							<InstrId>abc123</InstrId>
+							<UETR>b4f8c1a2-7e9d-4b3f-a1c6-d82e4f0a9b5c</UETR>
 						</Refs>
 						<Amt Ccy="EUR">120000.00</Amt>
 						<BkTxCd>

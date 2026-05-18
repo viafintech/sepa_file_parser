@@ -12,26 +12,26 @@ GEM
     bigdecimal (3.1.8)
     builder (3.2.4)
     date (3.3.4)
-    diff-lcs (1.5.1)
+    diff-lcs (1.6.2)
     nokogiri (1.19.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.3-x86_64-linux-gnu)
       racc (~> 1.4)
     racc (1.8.1)
     rake (13.2.1)
-    rspec (3.13.0)
+    rspec (3.13.2)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.0)
+    rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.0)
+    rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.1)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-support (3.13.1)
+    rspec-support (3.13.7)
     time (0.3.0)
       date
 
@@ -43,7 +43,7 @@ PLATFORMS
 DEPENDENCIES
   builder (~> 3.2.4)
   rake (~> 13.2.1)
-  rspec (~> 3.13.0)
+  rspec (~> 3.13.2)
   sepa_file_parser!
 
 BUNDLED WITH
