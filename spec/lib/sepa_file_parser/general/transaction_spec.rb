@@ -44,21 +44,23 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.creditor).to be_kind_of(SepaFileParser::Creditor) }
     specify { expect(ex_transaction.debitor).to be_kind_of(SepaFileParser::Debitor) }
     specify { expect(ex_transaction.postal_address).to be_kind_of(SepaFileParser::PostalAddress) }
-    specify { expect(ex_transaction.remittance_information)
-      .to eq("TEST BERWEISUNG MITTELS BLZUND KONTONUMMER - DTA") }
-    specify { expect(ex_transaction.iban).to eq("DE09300606010012345671") }
-    specify { expect(ex_transaction.bic).to eq("DAAEDEDDXXX") }
-    specify { expect(ex_transaction.swift_code).to eq("NTRF") }
-    specify { expect(ex_transaction.reference).to eq("") }
-    specify { expect(ex_transaction.bank_reference).to eq("BankReference") }
-    specify { expect(ex_transaction.end_to_end_reference).to eq("EndToEndReference") }
-    specify { expect(ex_transaction.mandate_reference).to eq("MandateReference") }
-    specify { expect(ex_transaction.transaction_id).to eq("UniqueTransactionId") }
-    specify { expect(ex_transaction.creditor_identifier).to eq("CreditorIdentifier") }
-    specify { expect(ex_transaction.payment_information).to eq("PaymentIdentification") }
-    specify {
-      expect(ex_transaction.additional_information).to eq("AdditionalTransactionInformation")
-    }
+    specify do
+      expect(ex_transaction.remittance_information)
+        .to eq('TEST BERWEISUNG MITTELS BLZUND KONTONUMMER - DTA')
+    end
+    specify { expect(ex_transaction.iban).to eq('DE09300606010012345671') }
+    specify { expect(ex_transaction.bic).to eq('DAAEDEDDXXX') }
+    specify { expect(ex_transaction.swift_code).to eq('NTRF') }
+    specify { expect(ex_transaction.reference).to eq('') }
+    specify { expect(ex_transaction.bank_reference).to eq('BankReference') }
+    specify { expect(ex_transaction.end_to_end_reference).to eq('EndToEndReference') }
+    specify { expect(ex_transaction.mandate_reference).to eq('MandateReference') }
+    specify { expect(ex_transaction.transaction_id).to eq('UniqueTransactionId') }
+    specify { expect(ex_transaction.creditor_identifier).to eq('CreditorIdentifier') }
+    specify { expect(ex_transaction.payment_information).to eq('PaymentIdentification') }
+    specify do
+      expect(ex_transaction.additional_information).to eq('AdditionalTransactionInformation')
+    end
     specify { expect(ex_transaction.ultimate_debitor).to be_nil }
     specify { expect(ex_transaction.xml_data).to_not be_nil }
   end
@@ -81,11 +83,11 @@ RSpec.describe SepaFileParser::Transaction do
     context '#reason_code' do
       let(:ex_entry) { entries[12] }
 
-      specify { expect(ex_transaction.reason_code).to eq("MD06") }
+      specify { expect(ex_transaction.reason_code).to eq('MD06') }
     end
 
-    specify { expect(ex_transaction.name).to eq("Hans Kaufmann") }
-    specify { expect(ex_transaction.creditor_reference).to eq("CreditorReference") }
+    specify { expect(ex_transaction.name).to eq('Hans Kaufmann') }
+    specify { expect(ex_transaction.creditor_reference).to eq('CreditorReference') }
     specify { expect(ex_transaction.ultimate_debitor).to be_nil }
   end
 
@@ -124,18 +126,20 @@ RSpec.describe SepaFileParser::Transaction do
       specify { expect(ex_transaction.exchange_rate).to eq('0.9433') }
     end
 
-    specify { expect(ex_transaction.name).to eq("Finanz AG") }
-    specify { expect(ex_transaction.creditor_reference).to eq("RF38000000000000000000552") }
-    specify { expect(ex_transaction.swift_code).to eq("A90") }
-    specify { expect(ex_transaction.bank_reference).to eq("0123171DO5126811") }
-    specify { expect(ex_transaction.end_to_end_reference).to eq("435A9287E088BDB1D97FAABD181C70C8") }
+    specify { expect(ex_transaction.name).to eq('Finanz AG') }
+    specify { expect(ex_transaction.creditor_reference).to eq('RF38000000000000000000552') }
+    specify { expect(ex_transaction.swift_code).to eq('A90') }
+    specify { expect(ex_transaction.bank_reference).to eq('0123171DO5126811') }
+    specify do
+      expect(ex_transaction.end_to_end_reference).to eq('435A9287E088BDB1D97FAABD181C70C8')
+    end
 
-    context "#remittance_information" do
+    context '#remittance_information' do
       let(:ex_entry) { entries[0] }
       let(:transactions)   { ex_entry.transactions }
       let(:ex_transaction) { transactions[0] }
 
-    specify { expect(ex_transaction.remittance_information).to eq("INVOICE R77561") }
+      specify { expect(ex_transaction.remittance_information).to eq('INVOICE R77561') }
     end
 
     context '#ultimate_debitor' do
@@ -144,7 +148,7 @@ RSpec.describe SepaFileParser::Transaction do
       let(:ex_transaction) { transactions[0] }
 
       specify { expect(ex_transaction.ultimate_debitor).to be_kind_of(SepaFileParser::UltimateDebitor) }
-      specify { expect(ex_transaction.ultimate_debitor.name).to eq("John Doe") }
+      specify { expect(ex_transaction.ultimate_debitor.name).to eq('John Doe') }
 
       context 'when not present' do
         let(:ex_entry) { entries[1] }
@@ -166,7 +170,7 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.creditor_identifier).to eq(nil) }
   end
 
-  context 'camt052' do
+  context 'fetch references/ids from message' do
     let(:camt)     { SepaFileParser::File.parse('spec/fixtures/camt052/valid_example_v8_2.xml') }
     let(:ex_rpt)   { camt.reports[0] }
     let(:entries)  { ex_rpt.entries }
@@ -174,7 +178,10 @@ RSpec.describe SepaFileParser::Transaction do
     let(:transactions)   { ex_entry.transactions }
     let(:ex_transaction) { transactions[0] }
 
-    specify { expect(ex_transaction.message_id).to eq("pacs009-InstrId-00006") }
-    specify { expect(ex_transaction.uetr).to eq("b4f8c1a2-7e9d-4b3f-a1c6-d82e4f0a9b5c") }
+    specify { expect(ex_transaction.message_id).to eq('pacs009-InstrId-00006') }
+    specify { expect(ex_transaction.uetr).to eq('b4f8c1a2-7e9d-4b3f-a1c6-d82e4f0a9b5c') }
+    specify do
+      expect(ex_transaction.unique_e2e_reference).to eq('b4f8c1a2-7e9d-4b3f-a1c6-d82e4f0a9b5c')
+    end
   end
 end

@@ -137,16 +137,17 @@ module SepaFileParser
       @payment_information ||= xml_data.xpath('Refs/PmtInfId/text()').text
     end
 
+    def uetr # May be missing
+      @uetr ||= xml_data.xpath('Refs/UETR/text()').text
+    end
+    alias_method :unique_e2e_reference, :uetr
+
     def additional_information # May be missing
       @addition_information ||= xml_data.xpath('AddtlTxInf/text()').text
     end
 
     def reason_code # May be missing
       @reason_code ||= xml_data.xpath('RtrInf/Rsn/Cd/text()').text
-    end
-
-    def uetr # May be missing
-      @uetr ||= xml_data.xpath('Refs/UETR/text()').text
     end
 
     private
