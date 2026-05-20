@@ -1,3 +1,7 @@
+# TO BE RELEASED
+
+- Add support for `Refs/UETR` as `uetr`/`unique_e2e_reference` on transaction information
+
 # v0.9.0
 
 - Add support for `TxDtls/RltdPties/UltmtDbtr`
