@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.052.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <BkToCstmrAcctRpt>
+    <GrpHdr>
+      <MsgId>MSG20260520-001</MsgId>
+      <CreDtTm>2026-05-20T14:56:22Z</CreDtTm>
+    </GrpHdr>
+    <Rpt>
+      <Id>RPT-2026-0042</Id>
+      <CreDtTm>2026-05-20T14:56:22Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>DE89370400440532013000</Id>
+          </Othr>
+        </Id>
+      </Acct>
+      <Ntry>
+        <Amt Ccy="EUR">1500.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>BOOK</Sts>
+        <BkTxCd>
+          <Domn>
+            <Cd>PMNT</Cd>
+            <Fmly>
+              <Cd>RCDT</Cd>
+              <SubFmlyCd>OEDT</SubFmlyCd>
+            </Fmly>
+          </Domn>
+        </BkTxCd>
+        <NtryDtls>
+          <Btch>
+            <MsgId>SAMMLER-REF-998877</MsgId>
+            <PmtInfId>PMT-INF-001</PmtInfId>
+            <NbOfTxs>3</NbOfTxs>
+            <TtlAmt Ccy="EUR">1500.00</TtlAmt>
+          </Btch>
+        </NtryDtls>
+      </Ntry>
+    </Rpt>
+  </BkToCstmrAcctRpt>
+</Document>
