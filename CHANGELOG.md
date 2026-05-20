@@ -1,5 +1,6 @@
 # TO BE RELEASED
 
+- Add support for Batch Detail `total_amount` and `currency`
 - Add support for `Refs/UETR` as `uetr`/`unique_e2e_reference` on transaction information
 
 # v0.9.0
