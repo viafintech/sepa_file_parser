@@ -13,6 +13,7 @@ module SepaFileParser
         ].reject(&:empty?).first.to_s,
         bank_name: xml_data.xpath('Svcr/FinInstnId/Nm/text()').text,
         currency:  xml_data.xpath('Ccy/text()').text,
+        owner:     SepaFileParser::Owner.new(xml_data.xpath('Ownr'))
       )
     end
 
@@ -25,12 +26,13 @@ module SepaFileParser
       )
     end
 
-    def initialize(iban: nil, other_id: nil, bic:, bank_name:, currency:)
+    def initialize(iban: nil, other_id: nil, bic:, bank_name:, currency:, owner: nil)
       @iban      = iban
       @other_id  = other_id
       @bic       = bic
       @bank_name = bank_name
       @currency  = currency
+      @owner     = owner
     end
 
     # @return [String]
@@ -61,6 +63,10 @@ module SepaFileParser
     # @return [String]
     def currency
       @currency.to_s
+    end
+
+    def owner
+      @owner
     end
   end
 end
