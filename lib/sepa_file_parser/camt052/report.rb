@@ -26,6 +26,10 @@ module SepaFileParser
         @entries ||= xml_data.xpath('Ntry').map{ |x| SepaFileParser::Entry.new(x) }
       end
 
+      def electronic_sequence_number
+        @electronic_sequence_number ||= xml_data.xpath('ElctrncSeqNb/text()').text
+      end
+
       def legal_sequence_number
         @legal_sequence_number ||= xml_data.xpath('LglSeqNb/text()').text
       end
