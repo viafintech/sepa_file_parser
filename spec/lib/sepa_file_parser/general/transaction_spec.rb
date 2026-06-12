@@ -80,10 +80,12 @@ RSpec.describe SepaFileParser::Transaction do
       specify { expect(ex_transaction.amount_in_cents).to eq(10000) }
     end
 
-    context '#reason_code' do
+    context '#return_information' do
       let(:ex_entry) { entries[12] }
 
-      specify { expect(ex_transaction.reason_code).to eq('MD06') }
+      specify { expect(ex_transaction.reason_code).to eq('MD06') } # For compatibility
+      specify { expect(ex_transaction.return_information.reason_code).to eq('MD06') }
+      specify { expect(ex_transaction.return_information.additional_information).not_to be_nil }
     end
 
     specify { expect(ex_transaction.name).to eq('Hans Kaufmann') }
