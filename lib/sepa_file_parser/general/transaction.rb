@@ -154,6 +154,11 @@ module SepaFileParser
       @return_information ||= parse_return_information
     end
 
+    # @return [SepaFileParser::BankTransactionCode, nil]
+    def bank_transaction_code
+      @bank_transaction_code ||= xml_data.xpath('BkTxCd').empty? ? nil : SepaFileParser::BankTransactionCode.new(xml_data.xpath('BkTxCd'))
+    end
+
     private
 
     def parse_original_currency_amount

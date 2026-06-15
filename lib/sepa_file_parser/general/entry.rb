@@ -103,6 +103,11 @@ module SepaFileParser
       @batch_detail ||= xml_data.xpath('NtryDtls/Btch').empty? ? nil : SepaFileParser::BatchDetail.new(@xml_data.xpath('NtryDtls/Btch'))
     end
 
+    # @return [SepaFileParser::BankTransactionCode, nil]
+    def bank_transaction_code
+      @bank_transaction_code ||= xml_data.xpath('BkTxCd').empty? ? nil : SepaFileParser::BankTransactionCode.new(xml_data.xpath('BkTxCd'))
+    end
+
     private
 
     def parse_transactions

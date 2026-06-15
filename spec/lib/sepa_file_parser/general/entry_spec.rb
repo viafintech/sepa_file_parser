@@ -39,4 +39,16 @@ RSpec.describe SepaFileParser::Entry do
     specify { expect(ex_entry.booking_datetime).to eq(DateTime.new(2023, 06, 21, 12, 35, 33.115965)) }
     specify { expect(ex_entry.value_datetime).to eq(nil) }
   end
+
+  context '#bank_transaction_code' do
+    let(:camt)     { SepaFileParser::File.parse('spec/fixtures/camt052/valid_example_v8_2.xml') }
+    let(:ex_rpt)   { camt.reports[0] }
+    let(:entries)  { ex_rpt.entries }
+    let(:ex_entry) { entries[0] }
+    let(:bank_transaction_code) { ex_entry.bank_transaction_code }
+
+    specify { expect(bank_transaction_code.domain_code).to eq('PMNT') }
+    specify { expect(bank_transaction_code.family_code).to eq('ICDT') }
+    specify { expect(bank_transaction_code.sub_family_code).to eq('SDVA') }
+  end
 end
