@@ -88,6 +88,7 @@ RSpec.describe SepaFileParser::Transaction do
 
     specify { expect(ex_transaction.name).to eq('Hans Kaufmann') }
     specify { expect(ex_transaction.creditor_reference).to eq('CreditorReference') }
+    specify { expect(ex_transaction.creditor_reference_information.code_or_proprietary).to eq('ISR Reference') }
     specify { expect(ex_transaction.ultimate_debitor).to be_nil }
   end
 
@@ -128,6 +129,7 @@ RSpec.describe SepaFileParser::Transaction do
 
     specify { expect(ex_transaction.name).to eq('Finanz AG') }
     specify { expect(ex_transaction.creditor_reference).to eq('RF38000000000000000000552') }
+    specify { expect(ex_transaction.creditor_reference_information.code_or_proprietary).to eq('SCOR') }
     specify { expect(ex_transaction.swift_code).to eq('A90') }
     specify { expect(ex_transaction.bank_reference).to eq('0123171DO5126811') }
     specify do
