@@ -86,6 +86,14 @@ RSpec.describe SepaFileParser::Transaction do
       specify { expect(ex_transaction.reason_code).to eq('MD06') }
     end
 
+    context '#bank_transaction_code' do
+      let(:bank_transaction_code) { ex_transaction.bank_transaction_code }
+
+      specify { expect(bank_transaction_code.domain_code).to eq('PMNT') }
+      specify { expect(bank_transaction_code.family_code).to eq('CNTR') }
+      specify { expect(bank_transaction_code.sub_family_code).to eq('CDPT') }
+    end
+
     specify { expect(ex_transaction.name).to eq('Hans Kaufmann') }
     specify { expect(ex_transaction.creditor_reference).to eq('CreditorReference') }
     specify { expect(ex_transaction.ultimate_debitor).to be_nil }
