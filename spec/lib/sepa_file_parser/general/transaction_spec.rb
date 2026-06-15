@@ -89,6 +89,7 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.name).to eq('Hans Kaufmann') }
     specify { expect(ex_transaction.creditor_reference).to eq('CreditorReference') }
     specify { expect(ex_transaction.creditor_reference_information.code_or_proprietary).to eq('ISR Reference') }
+    specify { expect(ex_transaction.additional_remittance_information).to eq('?REJECT?0') }
     specify { expect(ex_transaction.ultimate_debitor).to be_nil }
   end
 
