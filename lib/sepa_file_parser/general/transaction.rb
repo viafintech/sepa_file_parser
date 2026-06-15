@@ -115,7 +115,11 @@ module SepaFileParser
     end
 
     def creditor_reference # May be missing
-      @creditor_reference ||= xml_data.xpath('RmtInf/Strd/CdtrRefInf/Ref/text()').text
+      @creditor_reference ||= creditor_reference_information.creditor_reference
+    end
+
+    def creditor_reference_information
+      @creditor_reference_information ||= xml_data.xpath('RmtInf/Strd/CdtrRefInf').empty? ? nil : CreditorReferenceInformation.new(xml_data.xpath('RmtInf/Strd/CdtrRefInf'))
     end
 
     def message_id # May be missing
