@@ -72,6 +72,10 @@ module SepaFileParser
       credit? ? 1 : -1
     end
 
+    def additional_remittance_information # May be missing
+      @additional_remittance_information ||= xml_data.xpath('RmtInf/Strd/AddtlRmtInf/text()').text
+    end
+
     def remittance_information
       @remittance_information ||= begin
         if (x = xml_data.xpath('RmtInf/Ustrd')).empty?
