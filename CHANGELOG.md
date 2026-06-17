@@ -1,5 +1,6 @@
 # TO BE RELEASED
 
+- Add support to access `ElctrncSeqNb` for CAMT.052 to match CAMT.053
 - Add support for owner information in accounts
 
 # v0.10.0
