@@ -1,3 +1,7 @@
+# TO BE RELEASED
+
+- Add support for owner information in accounts
+
 # v0.10.0
 
 - Add support for Batch Detail `total_amount` and `currency`
