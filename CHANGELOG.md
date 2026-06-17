@@ -1,4 +1,4 @@
-# TO BE RELEASED
+# v0.11.0
 
 - Add support for accessing Creditor Remittance Information
 - Add support to access bank transaction code
