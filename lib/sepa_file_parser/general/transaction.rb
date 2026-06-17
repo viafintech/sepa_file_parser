@@ -147,7 +147,16 @@ module SepaFileParser
     end
 
     def reason_code # May be missing
-      @reason_code ||= xml_data.xpath('RtrInf/Rsn/Cd/text()').text
+      @reason_code ||= parse_return_information.reason_code # For compatibility
+    end
+
+    def return_information
+      @return_information ||= parse_return_information
+    end
+
+    # @return [SepaFileParser::BankTransactionCode, nil]
+    def bank_transaction_code
+      @bank_transaction_code ||= xml_data.xpath('BkTxCd').empty? ? nil : SepaFileParser::BankTransactionCode.new(xml_data.xpath('BkTxCd'))
     end
 
     private
@@ -170,6 +179,10 @@ module SepaFileParser
       elsif xml_data.xpath('AmtDtls//Amt/@Ccy').any?
         xml_data.xpath('AmtDtls//Amt/@Ccy').first.text
       end
+    end
+
+    def parse_return_information
+      @return_information ||= ReturnInformation.new(xml_data.xpath('RtrInf'))
     end
   end
 end
