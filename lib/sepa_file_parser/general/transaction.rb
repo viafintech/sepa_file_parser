@@ -123,7 +123,11 @@ module SepaFileParser
     end
 
     def creditor_reference_information
-      @creditor_reference_information ||= xml_data.xpath('RmtInf/Strd/CdtrRefInf').empty? ? nil : CreditorReferenceInformation.new(xml_data.xpath('RmtInf/Strd/CdtrRefInf'))
+      if xml_data.xpath('RmtInf/Strd/CdtrRefInf').empty?
+        return nil
+      end
+
+      @creditor_reference_information ||= parse_creditor_reference_information
     end
 
     def message_id # May be missing
@@ -195,6 +199,10 @@ module SepaFileParser
 
     def parse_bank_trx_code
       SepaFileParser::BankTransactionCode.new(xml_data.xpath('BkTxCd'))
+    end
+
+    def parse_creditor_reference_information
+      CreditorReferenceInformation.new(xml_data.xpath('RmtInf/Strd/CdtrRefInf'))
     end
   end
 end
