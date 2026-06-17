@@ -1,5 +1,6 @@
 # TO BE RELEASED
 
+- Add support to access bank transaction code
 - Add support to access additional return information, next to already accessible reason code
 - Add support to access `ElctrncSeqNb` for CAMT.052 to match CAMT.053
 - Add support for owner information in accounts
