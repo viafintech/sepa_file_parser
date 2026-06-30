@@ -1,3 +1,7 @@
+# v0.11.1
+
+- Handle creditor reference being missing correctly - addresses bug introduced in v0.11.0
+
 # v0.11.0
 
 - Add support for accessing Creditor Remittance Information
