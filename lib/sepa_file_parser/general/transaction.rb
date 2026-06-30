@@ -119,7 +119,7 @@ module SepaFileParser
     end
 
     def creditor_reference # May be missing
-      @creditor_reference ||= creditor_reference_information.creditor_reference
+      @creditor_reference ||= creditor_reference_information&.creditor_reference
     end
 
     def creditor_reference_information

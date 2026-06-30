@@ -183,6 +183,18 @@ RSpec.describe SepaFileParser::Transaction do
     specify { expect(ex_transaction.creditor_identifier).to eq(nil) }
   end
 
+  context 'missing creditor reference' do
+    let(:camt)       { SepaFileParser::File.parse('spec/fixtures/camt053/missing_creditor_reference.xml') }
+    let(:statements) { camt.statements }
+    let(:ex_stmt)    { statements[0] }
+    let(:entries)  { ex_stmt.entries }
+    let(:ex_entry) { entries[0] }
+    let(:transactions)   { ex_entry.transactions }
+    let(:ex_transaction) { transactions[0] }
+
+    specify { expect(ex_transaction.creditor_reference).to eq(nil) }
+  end
+
   context 'fetch references/ids from message' do
     let(:camt)     { SepaFileParser::File.parse('spec/fixtures/camt052/valid_example_v8_2.xml') }
     let(:ex_rpt)   { camt.reports[0] }
