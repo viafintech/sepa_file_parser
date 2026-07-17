@@ -98,6 +98,12 @@ module SepaFileParser
     def charges
       @charges ||= SepaFileParser::Charges.new(xml_data.xpath('Chrgs'))
     end
+
+    # @return [SepaFileParser::CounterValueAmount]
+    def counter_value_amount
+      @charges ||= SepaFileParser::CounterValueAmount.new(xml_data.xpath('AmtDtls/CntrValAmt'))
+    end
+
     # @return [SepaFileParser::BatchDetail, nil]
     def batch_detail
       @batch_detail ||= xml_data.xpath('NtryDtls/Btch').empty? ? nil : parse_batch_detail
