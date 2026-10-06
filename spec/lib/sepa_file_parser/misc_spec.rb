@@ -3,17 +3,23 @@
 require 'spec_helper'
 
 RSpec.describe SepaFileParser::Misc do
-  let(:dot_value) { "30.12" }
-  let(:comma_value) { "30,12" }
-  let(:integer_value) { "1" }
+  let(:dot_value) { '30.12' }
+  let(:comma_value) { '30,12' }
+  let(:integer_value) { '1' }
 
   context '#to_amount_in_cents' do
     specify { expect(described_class.to_amount_in_cents(dot_value)).to be_kind_of(Integer) }
     specify { expect(described_class.to_amount_in_cents(dot_value)).to eq(3012) }
     specify { expect(described_class.to_amount_in_cents(comma_value)).to eq(3012) }
     specify { expect(described_class.to_amount_in_cents(integer_value)).to eq(100) }
+    specify { expect(described_class.to_amount_in_cents('30.1')).to eq(3010) }
     specify { expect(described_class.to_amount_in_cents('')).to eq(nil) }
     specify { expect(described_class.to_amount_in_cents(nil)).to eq(nil) }
+    specify do
+      expect do
+        described_class.to_amount_in_cents('30.123')
+      end.to raise_error(ArgumentError)
+    end
   end
 
   context '#to_amount' do

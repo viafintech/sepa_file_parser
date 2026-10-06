@@ -1,3 +1,7 @@
+# TO BE RELEASED
+
+- Enforce maximum of 2 decimal digits for to_amount_in_cents.
+
 # v0.11.1
 
 - Handle creditor reference being missing correctly - addresses bug introduced in v0.11.0
