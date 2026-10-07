@@ -85,7 +85,13 @@ module SepaFileParser
 
     # @return [Boolean]
     def booked?
-      @booked ||= xml_data.xpath('Sts/text()').text.upcase == 'BOOK'
+      return @booked if defined?(@booked)
+
+      # Since .08 Sts is a choice (<Sts><Cd>BOOK</Cd></Sts>), before it was a plain code (<Sts>BOOK</Sts>)
+      status = xml_data.xpath('Sts/Cd/text()').text
+      status = xml_data.xpath('Sts/text()').text if status.empty?
+
+      @booked = status.strip.upcase == 'BOOK'
     end
 
     # @return [String]

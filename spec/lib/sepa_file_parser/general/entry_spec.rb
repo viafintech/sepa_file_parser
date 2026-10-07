@@ -33,6 +33,22 @@ RSpec.describe SepaFileParser::Entry do
   specify { expect(ex_entry.reference).to eq('1234567890sdfghjk') }
   specify { expect(ex_entry.xml_data).to_not be_nil }
 
+  context '#booked?' do
+    specify { expect(entries.map(&:booked?)).to all(eq(true)) }
+
+    context 'with camt.053.001.08 (Sts/Cd)' do
+      let(:camt) { SepaFileParser::File.parse('spec/fixtures/camt053/valid_example_v8.xml') }
+      specify { expect(entries.map(&:booked?)).to all(eq(true)) }
+    end
+
+    context 'with camt.052.001.08 (Sts/Cd)' do
+      let(:camt)    { SepaFileParser::File.parse('spec/fixtures/camt052/valid_example_v8.xml') }
+      let(:entries) { camt.reports[0].entries }
+      specify { expect(entries).not_to be_empty }
+      specify { expect(entries.map(&:booked?)).to all(eq(true)) }
+    end
+  end
+
   context 'datetime' do
     let(:camt) { SepaFileParser::File.parse('spec/fixtures/camt053/valid_example_with_datetime.xml') }
     specify { expect(ex_entry.booking_datetime).to be_kind_of(DateTime) }

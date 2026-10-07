@@ -1,6 +1,8 @@
 # TO BE RELEASED
 
+- Add support for CounterValueAmount
 - Enforce maximum of 2 decimal digits for to_amount_in_cents.
+- Correctly handle `booked?` for `.08` CAMT schema
 
 # v0.11.1
 
