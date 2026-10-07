@@ -1,4 +1,4 @@
-# TO BE RELEASED
+# v0.12.0
 
 - Add support for CounterValueAmount
 - Enforce maximum of 2 decimal digits for to_amount_in_cents.
