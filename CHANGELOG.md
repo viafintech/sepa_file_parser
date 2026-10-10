@@ -1,3 +1,7 @@
+# v0.12.1
+
+- Fix memoization of CounterValueAmount
+
 # v0.12.0
 
 - Add support for CounterValueAmount
