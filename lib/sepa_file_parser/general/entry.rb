@@ -107,7 +107,7 @@ module SepaFileParser
 
     # @return [SepaFileParser::CounterValueAmount]
     def counter_value_amount
-      @charges ||= SepaFileParser::CounterValueAmount.new(xml_data.xpath('AmtDtls/CntrValAmt'))
+      @counter_value_amount ||= SepaFileParser::CounterValueAmount.new(xml_data.xpath('AmtDtls/CntrValAmt'))
     end
 
     # @return [SepaFileParser::BatchDetail, nil]
